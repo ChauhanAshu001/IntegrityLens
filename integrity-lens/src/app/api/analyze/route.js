@@ -15,9 +15,9 @@ export async function POST(request) {
     // We need to create a NEW FormData to send to the Python backend
     const backendFormData = new FormData();
     backendFormData.append("file", file); 
-
+    const backendUrl = "https://iamakashkumar09-integritylensapi.hf.space";
     // 3. Call the Python API (FastAPI running on port 8000)
-    const pythonResponse = await fetch("http://127.0.0.1:8000/predict", {
+    const pythonResponse = await fetch(`${backendUrl}/predict`, {
       method: "POST",
       body: backendFormData,
       // Note: Do NOT set Content-Type header manually here, 
